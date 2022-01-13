@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.location.Location;
@@ -19,9 +21,17 @@ public class UserController {
 	public List<User> index() {
 		return userService.getAllUsers();
 	}
-	
-	@GetMapping("test")
-	public String test() {
-		return "HEllo";
+
+	@GetMapping("users/{id}")
+	public User getUser(@PathVariable String id) {
+		System.out.println("hellp" + id);
+		return userService.getUser(id);
 	}
+
+	
+	
+//	@GetMapping("test")
+//	public String test() {
+//		return "HEllo";
+//	}
 }

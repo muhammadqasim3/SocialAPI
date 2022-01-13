@@ -24,8 +24,18 @@ public class UserService {
 		"Jadon@gmail.com");
 
 	private List<User> users = Arrays.asList(user1, user2);
-	 
+	
+	// List of all users	
 	public List<User> getAllUsers() {
 		return users;
+	}	
+	
+	// Get single user
+	public User getUser(String id) {
+		User user = users.stream()
+				.filter(t -> id.equals(t.getId()))
+				.findFirst()
+				.orElse(null);
+		return user;
 	}
 }

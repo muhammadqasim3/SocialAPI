@@ -25,13 +25,13 @@ public class PostService {
 			"Jadon@gmail.com");
 			
 		Post post1 = new Post(
-			"p1",
+			"1",
 			"01-Jan-19",
 			user1,
 		        "Its good to love and be loved");
 			
 		Post post2 = new Post(
-			"p2",
+			"2",
 		        "02-Jan-19",
 			user2,
 			"We all need someone");		
@@ -40,5 +40,13 @@ public class PostService {
 		
 		public List<Post> getAllPosts(){
 			return posts;
+		}
+		
+		public Post getPost(String id) {
+			Post post = posts.stream()
+						.filter(t -> id.equals(t.getId()))
+						.findFirst()
+						.orElse(null);
+			return post;
 		}
 }
