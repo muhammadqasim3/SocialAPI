@@ -6,6 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.location.Location;
@@ -17,7 +19,7 @@ public class PostController {
 	@Autowired
 	private PostService postService;
 	
-	@GetMapping("/posts")
+	@GetMapping("posts")
 	public List<Post> index() {
 		return postService.getAllPosts();
 	}
@@ -25,6 +27,11 @@ public class PostController {
 	@GetMapping("posts/{id}")
 	public Post getPost(@PathVariable String id) {
 		return postService.getPost(id);
+	}
+	
+	@PostMapping("posts")
+	public void addPost(@RequestBody Post post) {
+		postService.addPost(post);
 	}
 	
 }

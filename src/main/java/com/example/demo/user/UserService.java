@@ -38,4 +38,8 @@ public class UserService {
 				.orElse(null);
 		return user;
 	}
+
+	public void addUser(User user) {
+		users.add(user);
+	}
 }
