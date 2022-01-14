@@ -32,5 +32,19 @@ public class LocationService {
 		public void addLocation(Location location) {
 			locations.add(location);
 		}
+
+		public void updateLocation(Location location, String id) {
+			// Iteration on locations list to find out the requested resource before modification
+			for(int i = 0; i < locations.size(); i++) {
+				Location loc = locations.get(i);
+				if(loc.getId().equals(id)) {
+					locations.set(i, location);
+				}
+			}
+		}
+
+		public void deleteLocation(String id) {
+			
+		}
 		
 }

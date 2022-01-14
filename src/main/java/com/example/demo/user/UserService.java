@@ -42,4 +42,14 @@ public class UserService {
 	public void addUser(User user) {
 		users.add(user);
 	}
+
+	public void updateUser(User user, String id) {
+		for(int i = 0; i < users.size(); i++) {
+			User u = users.get(i);
+			if(u.getId().equals(id)) {
+				// i = passed id from @PathVariable
+				users.set(i, user);
+			}
+		}
+	}
 }

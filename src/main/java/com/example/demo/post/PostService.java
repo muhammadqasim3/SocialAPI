@@ -55,4 +55,16 @@ public class PostService {
 		public void addPost(Post post) {
 			posts.add(post);
 		}
+
+		public void updatePost(Post post, String id) {
+			// Iteration on posts list to find out the requested resource before modification
+			for(int i = 0; i < posts.size(); i++) {
+				Post p = posts.get(i);
+				if(p.getId().equals(id)) {
+					// i = passed id from @PathVariable
+					posts.set(i, post);
+				}
+			}
+		}
+		
 }
