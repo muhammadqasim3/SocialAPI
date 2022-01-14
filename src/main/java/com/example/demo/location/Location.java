@@ -1,10 +1,19 @@
 package com.example.demo.location;
 
-public class Location {
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
+@Entity
+public class Location {
+	
+	@Id
 	private String id;
 	private String name;
 	
+	public Location() {
+		super();
+	}
+
 	public Location(String id, String name) {
 		super();
 		this.id = id;

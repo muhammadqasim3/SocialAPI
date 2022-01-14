@@ -2,6 +2,7 @@ package com.example.demo.post;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -27,7 +28,7 @@ public class PostController {
 	}
 	
 	@GetMapping("posts/{id}")
-	public Post getPost(@PathVariable String id) {
+	public Optional<Post> getPost(@PathVariable String id) {
 		return postService.getPost(id);
 	}
 	

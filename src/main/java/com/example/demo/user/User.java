@@ -1,15 +1,27 @@
 package com.example.demo.user;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
 import com.example.demo.location.Location;
 
+@Entity
 public class User {
 	
+	@Id
 	private String id;
 	private String firstname;
 	private String lastname;
+	@ManyToOne
 	private Location location;
 	private String email;
 	
+	
+	public User() {
+		super();
+	}
+
 	public User(String id, String firstname, String lastname, Location location, String email) {
 		super();
 		this.id = id;
@@ -19,7 +31,7 @@ public class User {
 		this.email = email;
 	}
 	
-	
+
 	public String getId() {
 		return id;
 	}

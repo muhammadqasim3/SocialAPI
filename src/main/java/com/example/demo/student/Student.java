@@ -9,6 +9,11 @@ public class Student {
 	public String id;
 	private String name;
 	private String department;
+
+	
+	public Student() {
+		super();
+	}
 	
 	public Student(String id, String name, String department) {
 		super();
