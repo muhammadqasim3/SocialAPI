@@ -44,5 +44,9 @@ public class LocationController {
 	public void deleteLocation(@PathVariable String id) {
 		locationService.deleteLocation(id);
 	}
+	
+	public List<Location> getLocationByName(String name) {
+		return locationService.getLocationByName(name);
+	}
 
 }

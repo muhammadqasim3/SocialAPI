@@ -91,7 +91,7 @@ public class PostService {
 			
 			postRepository.findByUserId(id)
 			.forEach(posts::add);
-			
+			 
 			return posts;
 		}
 		

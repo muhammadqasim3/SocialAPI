@@ -4,10 +4,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class LocationService {
+	
+		@Autowired
+		LocationRepository locationRepository;
+		
 		Location location1 = new Location("1", "Lagos");
 		Location location2 = new Location("2", "Asaba");
 		Location location3 = new Location("3", "Budapest");	
@@ -45,6 +50,15 @@ public class LocationService {
 
 		public void deleteLocation(String id) {
 			locations.removeIf(t -> t.getId().equals(id));
+		}
+
+		public List<Location> getLocationByName(String name) {
+			List<Location> locations = new ArrayList<>();
+			
+			locationRepository.findByName(name)
+			.forEach(locations::add);
+			
+			return locations;
 		}
 		
 }
