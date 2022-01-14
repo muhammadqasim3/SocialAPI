@@ -44,7 +44,7 @@ public class LocationService {
 		}
 
 		public void deleteLocation(String id) {
-			
+			locations.removeIf(t -> t.getId().equals(id));
 		}
 		
 }

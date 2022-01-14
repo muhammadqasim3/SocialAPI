@@ -52,4 +52,8 @@ public class UserService {
 			}
 		}
 	}
+
+	public void deleteUser(String id) {
+		users.removeIf(t -> t.getId().equals(id));	
+	}
 }
